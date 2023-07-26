@@ -8,6 +8,7 @@ import Shop from "@/component/shop/Shop";
 export default function Home() {
   return (
     <div>
+      <Header />
       <Shop />
     </div>
   );

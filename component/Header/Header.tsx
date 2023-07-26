@@ -1,42 +1,33 @@
 import React from "react";
 import Link from "next/link";
 import classes from "./Header.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useDispatch, useSelector } from "react-redux";
+import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 
 function Header() {
+  const data1 = useSelector((state: any) => state.item);
+  console.log("data1", data1);
   return (
-    <header className={classes.mainheade}>
-      <div className={classes.container}>
-        {/* <div className={classes.logo}>
-          <img className={classes.img} src="logo.png" alt="Your Logo" />
-        </div> */}
-        <div className={classes.searchcart}>
-          <div className={classes.searchbar}>
-            <input type="text" placeholder="Search products..." />
-            <button className={classes.button}>Search</button>
+    <>
+      <header className={classes.header}>
+        <div className={classes.header__container}>
+          <div className={classes.header__logo}>
+            <a href="#">
+              <img src="logo.png" alt="Logo" />
+            </a>
           </div>
-          <div className={classes.carticon}>
-            <i className="fas fa-shopping-cart"></i>
-            <span className={classes.span}>3</span>
+          <div className={classes.header__search}>
+            <input type="text" placeholder="Search..." />
+            <button>Search</button>
+          </div>
+          <div className={classes.header__cart}>
+            <span className={classes.cart__count}>{data1.items}</span>
+            <FontAwesomeIcon icon={faShoppingCart} />
           </div>
         </div>
-        <nav className={classes.mainnav}>
-          <ul className={classes.ul}>
-            <Link className={classes.li} href="#">
-              Home
-            </Link>
-            <Link className={classes.li} href="#">
-              Shop
-            </Link>
-            <Link className={classes.li} href="#">
-              About
-            </Link>
-            <Link className={classes.li} href="#">
-              Contact
-            </Link>
-          </ul>
-        </nav>
-      </div>
-    </header>
+      </header>
+    </>
   );
 }
 
