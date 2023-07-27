@@ -1,0 +1,27 @@
+/* additem.css */
+
+/* Styling for the form container */
+.form-container {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  /* Styling for input fields */
+  .form-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* Styling for the submit button */
+  .form-submit-btn {
+    padding: 10px 20px;
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
