@@ -7,12 +7,11 @@ import {
 export const Slice = createApi({
   reducerPath: "Slice",
   baseQuery: fetchBaseQuery({
-    baseUrl:
-      "https://hostelallocation-16464-default-rtdb.firebaseio.com/product.json",
+    baseUrl: "https://fakestoreapi.com/",
   }),
   endpoints: (builder) => ({
     getProducts: builder.query({
-      query: () => "/",
+      query: () => "products",
     }),
     postProducts: builder.mutation({
       query: (newproducts) => ({
@@ -24,7 +23,14 @@ export const Slice = createApi({
         },
       }),
     }),
+    searchProducts: builder.query({
+      query: (id: number) => `products/${id}`,
+    }),
   }),
 });
 
-export const { useGetProductsQuery, usePostProductsMutation } = Slice;
+export const {
+  useGetProductsQuery,
+  usePostProductsMutation,
+  useSearchProductsQuery,
+} = Slice;

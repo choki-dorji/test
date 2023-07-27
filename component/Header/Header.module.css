@@ -1,66 +1,94 @@
+/* Header.module.css */
+
+/* Main header container */
 .header {
-    background-color: #f0f0f0;
-    padding: 10px 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px;
+}
+
+/* Header container to center the elements */
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo container */
+.header__logo img {
+  height: 40px;
+  width: auto;
+}
+
+/* Search input */
+.header__search input {
+  padding: 8px;
+  border: none;
+  color: black;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+/* Search button */
+.header__search button {
+  padding: 8px 16px;
+  background-color: #fff;
+  color: #007bff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Cart container */
+/* Header.module.css */
+.header__cart {
+  display: flex;
+  align-items: center;
+  position: relative; /* Add position relative to the container */
+}
+
+.cart__count {
+  background-color: #fd4c4c; /* Change to your desired background color */
+  color: #fff;
+  padding: 2px 6px;
+  border-radius: 50%;
+  font-size: 12px;
+  position: absolute;
+  top: -8px; /* Adjust the positioning to overlap on top of the icon */
+  right: -8px; /* Adjust the positioning to overlap on top of the icon */
+}
+
+/* Make sure to adjust the positioning and styles based on your specific design requirements */
+
+
+/* Cart icon */
+.header__cart svg {
+  height: 24px;
+  width: auto;
+  margin-right: 6px;
+}
+
+/* Cart count indicator */
+/* .cart__count {
+  background-color: #faacac;
+  font-weight: bold;
+  color: #5a1a02;
+  font-size: 14px;
+  padding: 1px 4px;
+  border-radius: 12px;
   
-  .header__container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .header__logo img {
-    height: 50px;
-  }
-  
-  .header__search {
-    flex: 1;
-    text-align: center;
-  }
-  
-  .header__search input {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
+} */
+
+/* Media query for phone view (up to 767px width) */
+@media (max-width: 767px) {
   .header__search button {
-    padding: 8px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+    display: none; /* Hide the search button */
   }
-  
-  .header__cart {
-    display: flex;
-    border-radius: 50%;
-    align-items: center;
+}
+
+/* Media query for iPad view (between 768px and 1023px width) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .header__search button {
+    display: none; /* Hide the search button */
   }
-  
-  .header__cart img {
-    height: 30px;
-    margin-left: 10px;
-    cursor: pointer;
-  }
-  
-  .cart__count {
-    background-color: #007bff;
-    color: #fff;
-    font-size: 12px;
-    padding: 3px 6px;
-    border-radius: 50%;
-    margin-right: 5px;
-  }
-  
-  /* Responsive styles */
-  @media (max-width: 768px) {
-    .header__cart {
-      display: none;
-    }
-  }
-  
+}

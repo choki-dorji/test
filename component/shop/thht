@@ -1,3 +1,5 @@
+
+
 import React, { useState } from "react";
 import { useGetProductsQuery, useSearchProductsQuery } from "@/store/Slice";
 import Additem from "./Additem";
@@ -5,12 +7,10 @@ import { Button } from "@nextui-org/react";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "@/store/Reducer";
 import store from "@/store/store";
-import { Loading, Grid } from "@nextui-org/react";
 
 import Image from "next/image";
 
 import styles from "./shop1.module.css"; // Import the CSS file
-import Shop1 from "./ShopCard";
 
 interface Product {
   category: string;
@@ -32,13 +32,7 @@ function Shop() {
 
   const dataa = useSelector((state: any) => state.id);
   if (isLoading) {
-    return (
-      <Grid.Container gap={2} justify="center" align="center">
-        <Grid>
-          <Loading type="spinner" size="xl" />
-        </Grid>
-      </Grid.Container>
-    );
+    return <div className={styles["loader"]}></div>;
   }
   if (error) {
     return <p className={styles["message"]}>Error</p>;
@@ -95,28 +89,42 @@ function Shop() {
       <div className={styles["product-list-container"]}>
         {alldata
           ? alldata.map((t: Product) => (
-              <Shop1
-                title={t.title}
-                price={t.price}
-                id={t.id}
-                image={t.image}
-                description={t.description}
-                onClicking={() =>
-                  handleClick(t.id, t.image, t.price, t.title, t.description)
-                }
-              />
+              <div key={t.id} className={styles["product-item"]}>
+                <p className={styles["product-title"]}>{t.title}</p>
+                <img
+                  src={t.image}
+                  alt={t.title}
+                  style={{ height: 250, width: 250, alignItems: "center" }}
+                />
+                <p>Price: ${t.price}</p>
+                <button
+                  className={styles["add-to-cart-button"]}
+                  onClick={() =>
+                    handleClick(t.id, t.image, t.price, t.title, t.description)
+                  }
+                >
+                  Add to Cart
+                </button>
+              </div>
             ))
           : data.map((m: Product) => (
-              <Shop1
-                title={m.title}
-                price={m.price}
-                id={m.id}
-                image={m.image}
-                description={m.description}
-                onClicking={() =>
-                  handleClick(m.id, m.image, m.price, m.title, m.description)
-                }
-              />
+              <div key={m.id} className={styles["product-item"]}>
+                <p className={styles["product-title"]}>{m.title}</p>
+                <img
+                  src={m.image}
+                  alt={m.title}
+                  style={{ height: 250, width: 250, alignItems: "center" }}
+                />
+                <p>Price: ${m.price}</p>
+                <button
+                  className={styles["add-to-cart-button"]}
+                  onClick={() =>
+                    handleClick(m.id, m.image, m.price, m.title, m.description)
+                  }
+                >
+                  Add to Cart
+                </button>
+              </div>
             ))}
       </div>
     </>
